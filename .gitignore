@@ -1,0 +1,10 @@
+# replit files
+.cache/
+.replit
+replit.nix
+
+# vs code files
+.vscode/
+
+# build output
+build/
