@@ -10,32 +10,15 @@
 // SOFTWARE.
 // -----------------------------------------------------------------------------
 
-#include "bstvis.h"
+#include "mode.h"
 
-#include "io/mode.h"
-#include "io/user_query.h"
-
-#include <stdio.h>
-
-/**
- * @brief Entrypoint function.
- *
- */
-int main(void) {
-    printf("\n==== BSTvis ========================================================= START ====\n\n");
-
-    visUserMode userMode;
-
-    while ((userMode = visEnumerateUserMode(visPromptUserMode())) != VIS_USER_MODE_QUIT) {
-        switch (userMode) {
-            case VIS_USER_MODE_NONE:
-                printf("Invalid input\n");
-                continue;
-            default:
-                continue;
-        }
+visUserMode visEnumerateUserMode(const char mode) {
+    switch (mode) {
+        case 'i':
+            return VIS_USER_MODE_INSERT;
+        case 'q':
+            return VIS_USER_MODE_QUIT;
+        default:
+            return VIS_USER_MODE_NONE;
     }
-
-    printf("\n==== BSTvis =========================================================== END ====\n\n");
-    return 0;
 }

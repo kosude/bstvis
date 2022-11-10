@@ -10,32 +10,31 @@
 // SOFTWARE.
 // -----------------------------------------------------------------------------
 
-#include "bstvis.h"
-
-#include "io/mode.h"
-#include "io/user_query.h"
-
-#include <stdio.h>
+#pragma once
+#ifndef __VIS_MODE_H
+#define __VIS_MODE_H
 
 /**
- * @brief Entrypoint function.
+ * @brief Enumerator containing possible user modes of command.
+ *
+ *  - INSERT = insert an entry into the binary search tree
+ *  - NONE = returned when an error was encountered converting from char to visUserMode
  *
  */
-int main(void) {
-    printf("\n==== BSTvis ========================================================= START ====\n\n");
+typedef enum visUserMode {
+    VIS_USER_MODE_INSERT    = 0x01,
+    VIS_USER_MODE_QUIT      = 0xFF,
 
-    visUserMode userMode;
+    VIS_USER_MODE_NONE      = 0x00
+} visUserMode;
 
-    while ((userMode = visEnumerateUserMode(visPromptUserMode())) != VIS_USER_MODE_QUIT) {
-        switch (userMode) {
-            case VIS_USER_MODE_NONE:
-                printf("Invalid input\n");
-                continue;
-            default:
-                continue;
-        }
-    }
+/**
+ * @brief Convert from the given user mode character to its respective enumerator.
+ *
+ * @param mode Mode to convert as a character (e.g. 'i' = INSERT)
+ * @return Respective visUserMode entry.
+ *
+ */
+visUserMode visEnumerateUserMode(const char mode);
 
-    printf("\n==== BSTvis =========================================================== END ====\n\n");
-    return 0;
-}
+#endif // __VIS_MODE_H

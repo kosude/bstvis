@@ -1,5 +1,8 @@
 set(SOURCES
     "main.c"
+
+    "io/mode.c"
+    "io/user_query.c"
 )
 
 add_executable("${PROJECT_NAME}exec" ${SOURCES})

@@ -10,32 +10,30 @@
 // SOFTWARE.
 // -----------------------------------------------------------------------------
 
-#include "bstvis.h"
-
-#include "io/mode.h"
-#include "io/user_query.h"
+#include "user_query.h"
 
 #include <stdio.h>
 
-/**
- * @brief Entrypoint function.
- *
- */
-int main(void) {
-    printf("\n==== BSTvis ========================================================= START ====\n\n");
+char visPromptUserMode(void) {
+    // print dialogue message
+    printf(" | Select user mode"
+        "\n |     (i): Insert an entry into the binary search tree"
+        "\n |     (q): Quit the program"
+        "\n |   > ");
 
-    visUserMode userMode;
+    // get user input
+    char line[4096];
 
-    while ((userMode = visEnumerateUserMode(visPromptUserMode())) != VIS_USER_MODE_QUIT) {
-        switch (userMode) {
-            case VIS_USER_MODE_NONE:
-                printf("Invalid input\n");
-                continue;
-            default:
-                continue;
-        }
+    // check if input is EOF
+    // if it is then 'q' is returned to quit the application
+    if (!fgets(line, sizeof(line), stdin)) {
+        printf("\n"); // newline so PS1 is on a new line
+        return 'q';
     }
 
-    printf("\n==== BSTvis =========================================================== END ====\n\n");
-    return 0;
+    // parse the user input into the resultant variable r
+    char r;
+    sscanf(line, "%c", &r);
+
+    return r;
 }

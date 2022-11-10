@@ -10,32 +10,16 @@
 // SOFTWARE.
 // -----------------------------------------------------------------------------
 
-#include "bstvis.h"
-
-#include "io/mode.h"
-#include "io/user_query.h"
-
-#include <stdio.h>
+#pragma once
+#ifndef __VIS_USER_QUERY_H
+#define __VIS_USER_QUERY_H
 
 /**
- * @brief Entrypoint function.
+ * @brief Ask the user to input the user mode to switch to.
+ *
+ * @return The user's response
  *
  */
-int main(void) {
-    printf("\n==== BSTvis ========================================================= START ====\n\n");
+char visPromptUserMode(void);
 
-    visUserMode userMode;
-
-    while ((userMode = visEnumerateUserMode(visPromptUserMode())) != VIS_USER_MODE_QUIT) {
-        switch (userMode) {
-            case VIS_USER_MODE_NONE:
-                printf("Invalid input\n");
-                continue;
-            default:
-                continue;
-        }
-    }
-
-    printf("\n==== BSTvis =========================================================== END ====\n\n");
-    return 0;
-}
+#endif // __VIS_USER_QUERY_H
