@@ -33,7 +33,7 @@ bvNode *bvInsertValue(bvNode *node, BV_TREE_VALUE_TYPE value) {
     // if value is below the node value
     if (value < node->value) {
         node->left = bvInsertValue(node->left, value);
-    } else if (value > node->value) {
+    } else if (value >= node->value) {
         node->right = bvInsertValue(node->right, value);
     }
 

@@ -23,6 +23,7 @@ char visPromptUserMode(void) {
     printf(""
         "\n | Select user mode"
         "\n |     (i): Insert an entry into the binary search tree"
+        "\n |     (v): View the binary search tree"
         "\n |     (q): Quit the program"
         "\n |   > ");
 

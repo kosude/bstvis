@@ -17,12 +17,10 @@
 /**
  * @brief Enumerator containing possible user modes of command.
  *
- *  - INSERT = insert an entry into the binary search tree
- *  - NONE = returned when an error was encountered converting from char to visUserMode
- *
  */
 typedef enum visUserMode {
     VIS_USER_MODE_INSERT    = 0x01,
+    VIS_USER_MODE_VIEW      = 0x02,
     VIS_USER_MODE_QUIT      = 0xFF,
 
     VIS_USER_MODE_NONE      = 0x00

@@ -23,4 +23,10 @@
  */
 void visInsert(int *entries, unsigned int count);
 
+/**
+ * @brief Display the contents of the binary search tree.
+ *
+ */
+void visView(void);
+
 #endif // __VIS_TREE_H

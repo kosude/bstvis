@@ -16,6 +16,8 @@ visUserMode visEnumerateUserMode(const char mode) {
     switch (mode) {
         case 'i':
             return VIS_USER_MODE_INSERT;
+        case 'v':
+            return VIS_USER_MODE_VIEW;
         case 'q':
             return VIS_USER_MODE_QUIT;
         default:

@@ -40,7 +40,9 @@ int main(void) {
 
             case VIS_USER_MODE_NONE:
                 printf(" | Invalid input\n");
+
                 continue;
+
             case VIS_USER_MODE_INSERT:
                 // get entry or entries to insert
                 entryInsertArray = visPromptEntryInsertion(&entryInsertCount);
@@ -51,8 +53,15 @@ int main(void) {
                 entryInsertArray = NULL;
 
                 continue;
+
+            case VIS_USER_MODE_VIEW:
+                visView();
+
+                continue;
+
             case VIS_USER_MODE_QUIT:
                 break;
+
             default:
                 continue;
         }
