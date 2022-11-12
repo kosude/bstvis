@@ -15,8 +15,10 @@
 #include "io/mode.h"
 #include "io/user_query.h"
 #include "control/control.h"
+#include "tree/tree.h"
 
 #include <stdio.h>
+#include <stdlib.h>
 
 /**
  * @brief Entrypoint function.
@@ -27,14 +29,35 @@ int main(void) {
 
     visUserMode userMode;
 
-    while ((userMode = visEnumerateUserMode(visPromptUserMode())) != VIS_USER_MODE_QUIT) {
+    while (1) {
+        // get user mode
+        userMode = visEnumerateUserMode(visPromptUserMode());
+
         switch (userMode) {
+            // used in INSERT mode
+            int *entryInsertArray;
+            unsigned int entryInsertCount;
+
             case VIS_USER_MODE_NONE:
-                printf("Invalid input\n");
+                printf(" | Invalid input\n");
                 continue;
+            case VIS_USER_MODE_INSERT:
+                // get entry or entries to insert
+                entryInsertArray = visPromptEntryInsertion(&entryInsertCount);
+
+                visInsert(entryInsertArray, entryInsertCount);
+
+                free(entryInsertArray);
+                entryInsertArray = NULL;
+
+                continue;
+            case VIS_USER_MODE_QUIT:
+                break;
             default:
                 continue;
         }
+
+        break;
     }
 
     visPrintCloser(0);

@@ -10,28 +10,10 @@
 // SOFTWARE.
 // -----------------------------------------------------------------------------
 
-#pragma once
-#ifndef __VIS_USER_QUERY_H
-#define __VIS_USER_QUERY_H
+#include "tree.h"
 
-/**
- * @brief Ask the user to input the user mode to switch to.
- *
- * @return The user's response
- *
- */
-char visPromptUserMode(void);
+#include <stdio.h>
 
-/**
- * @brief Ask the user to input an entry to insert into the tree.
- *
- * This function will allocate the array of integers to be returned.
- *
- * @param countOut the length of the returned array will be returned into this location if it is not NULL.
- *
- * @return The user's response(s)
- *
- */
-int *visPromptEntryInsertion(unsigned int *countOut);
-
-#endif // __VIS_USER_QUERY_H
+void visInsert(int *entries, unsigned int count) {
+    printf(" | Entry insertion successful\n");
+}

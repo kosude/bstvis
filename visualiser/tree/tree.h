@@ -11,27 +11,16 @@
 // -----------------------------------------------------------------------------
 
 #pragma once
-#ifndef __VIS_USER_QUERY_H
-#define __VIS_USER_QUERY_H
+#ifndef __VIS_TREE_H
+#define __VIS_TREE_H
 
 /**
- * @brief Ask the user to input the user mode to switch to.
+ * @brief Insert the given values into the binary search tree.
  *
- * @return The user's response
- *
- */
-char visPromptUserMode(void);
-
-/**
- * @brief Ask the user to input an entry to insert into the tree.
- *
- * This function will allocate the array of integers to be returned.
- *
- * @param countOut the length of the returned array will be returned into this location if it is not NULL.
- *
- * @return The user's response(s)
+ * @param entries the entry array to insert
+ * @param count the amount of entries in array `entries`
  *
  */
-int *visPromptEntryInsertion(unsigned int *countOut);
+void visInsert(int *entries, unsigned int count);
 
-#endif // __VIS_USER_QUERY_H
+#endif // __VIS_TREE_H
