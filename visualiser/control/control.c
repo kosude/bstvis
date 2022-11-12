@@ -10,24 +10,23 @@
 // SOFTWARE.
 // -----------------------------------------------------------------------------
 
-#pragma once
-#ifndef __VIS_USER_QUERY_H
-#define __VIS_USER_QUERY_H
+#include "control.h"
 
-/**
- * @brief Ask the user to input the user mode to switch to.
- *
- * @return The user's response
- *
- */
-char visPromptUserMode(void);
+#include <stdlib.h>
+#include <stdio.h>
 
-/**
- * @brief Ask the user to input an entry to insert into the tree.
- *
- * @return The user's response
- *
- */
-int visPromptEntryInsertion(void);
+void visPrintOpener(void) {
+    printf("\n==== BSTvis ========================================================= START ====\n");
+}
 
-#endif // __VIS_USER_QUERY_H
+void visPrintCloser(int initialNewline) {
+    if (initialNewline) {
+        printf("\n");
+    }
+    printf("\n==== BSTvis =========================================================== END ====\n\n");
+}
+
+void visQuit(void) {
+    visPrintCloser(1);
+    exit(0);
+}

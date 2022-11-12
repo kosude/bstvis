@@ -14,6 +14,7 @@
 
 #include "io/mode.h"
 #include "io/user_query.h"
+#include "control/control.h"
 
 #include <stdio.h>
 
@@ -22,7 +23,7 @@
  *
  */
 int main(void) {
-    printf("\n==== BSTvis ========================================================= START ====\n");
+    visPrintOpener();
 
     visUserMode userMode;
 
@@ -36,6 +37,6 @@ int main(void) {
         }
     }
 
-    printf("\n==== BSTvis =========================================================== END ====\n\n");
+    visPrintCloser(0);
     return 0;
 }

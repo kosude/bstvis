@@ -11,23 +11,25 @@
 // -----------------------------------------------------------------------------
 
 #pragma once
-#ifndef __VIS_USER_QUERY_H
-#define __VIS_USER_QUERY_H
+#ifndef __VIS_CONTROL_H
+#define __VIS_CONTROL_H
 
 /**
- * @brief Ask the user to input the user mode to switch to.
- *
- * @return The user's response
+ * @brief Print opening divider.
  *
  */
-char visPromptUserMode(void);
+void visPrintOpener(void);
 
 /**
- * @brief Ask the user to input an entry to insert into the tree.
- *
- * @return The user's response
+ * @brief Print closing divider.
  *
  */
-int visPromptEntryInsertion(void);
+void visPrintCloser(int initialNewline);
 
-#endif // __VIS_USER_QUERY_H
+/**
+ * @brief Quit the BST visualiser process.
+ *
+ */
+void visQuit(void);
+
+#endif // __VIS_CONTROL_H

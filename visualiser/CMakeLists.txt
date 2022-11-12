@@ -3,6 +3,7 @@ set(SOURCES
 
     "io/mode.c"
     "io/user_query.c"
+    "control/control.c"
 )
 
 add_executable("${PROJECT_NAME}exec" ${SOURCES})

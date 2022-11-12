@@ -12,6 +12,8 @@
 
 #include "user_query.h"
 
+#include "../control/control.h"
+
 #include <stdio.h>
 
 char visPromptUserMode(void) {
@@ -28,13 +30,36 @@ char visPromptUserMode(void) {
     // check if input is EOF
     // if it is then 'q' is returned to quit the application
     if (!fgets(line, sizeof(line), stdin)) {
-        printf("\n"); // newline so PS1 is on a new line
-        return 'q';
+        visQuit();
+        return '\0';
     }
 
     // parse the user input into the resultant variable r
     char r;
     sscanf(line, "%c", &r);
+
+    return r;
+}
+
+int visPromptEntryInsertion(void) {
+    // print dialogue message
+    printf(""
+        "\n | Input the entry to INSERT:"
+        "\n |   > ");
+
+    // get user input
+    char line[4096];
+
+    // check if input is EOF
+    // if it is then 'q' is returned to quit the application
+    if (!fgets(line, sizeof(line), stdin)) {
+        visQuit();
+        return 0;
+    }
+
+    // parse the user input into the resultant variable r
+    int r;
+    sscanf(line, "%d", &r);
 
     return r;
 }
