@@ -10,15 +10,32 @@
 // SOFTWARE.
 // -----------------------------------------------------------------------------
 
-#ifndef __BSTVIS_TESTFN_H
-#define __BSTVIS_TESTFN_H
+#include "bstvis.h"
 
-/**
- * @brief Test function
- *
- * @param str String parameter
- *
- */
-void bvTestFunction(const char *str);
+#include <stdlib.h>
 
-#endif // !__BSTVIS_TESTFN_H
+bvNode *bvCreateNode(BV_TREE_VALUE_TYPE value) {
+    bvNode *r = malloc(sizeof(bvNode));
+
+    r->value = value;
+    r->left = NULL;
+    r->right = NULL;
+
+    return r;
+}
+
+bvNode *bvInsertValue(bvNode *node, BV_TREE_VALUE_TYPE value) {
+    // if the tree is empty then create a new node
+    if (!node) {
+        return bvCreateNode(value);
+    }
+
+    // if value is below the node value
+    if (value < node->value) {
+        node->left = bvInsertValue(node->left, value);
+    } else if (value > node->value) {
+        node->right = bvInsertValue(node->right, value);
+    }
+
+    return node;
+}

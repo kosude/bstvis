@@ -13,6 +13,8 @@
 #ifndef __BSTVIS_H
 #define __BSTVIS_H
 
-#include "bstvis/testfn.h"
+#include "bstvis/structs.h"
+#include "bstvis/tree.h"
+#include "bstvis/type.h"
 
 #endif // !__BSTVIS_H

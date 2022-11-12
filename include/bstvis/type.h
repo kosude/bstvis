@@ -10,22 +10,9 @@
 // SOFTWARE.
 // -----------------------------------------------------------------------------
 
-#include "tree.h"
+#ifndef __BSTVIS_TYPE_H
+#define __BSTVIS_TYPE_H
 
-#include "bstvis.h"
+#define BV_TREE_VALUE_TYPE int
 
-#include <stdio.h>
-
-/**
- * @brief The binary search tree to be visualised.
- *
- */
-bvNode *tree = NULL;
-
-void visInsert(int *entries, unsigned int count) {
-    for (unsigned int i = 0; i < count; i++) {
-        bvInsertValue(tree, entries[i]);
-    }
-
-    printf(" | Entry insertion successful\n");
-}
+#endif // !__BSTVIS_TYPE_H

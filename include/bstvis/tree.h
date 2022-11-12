@@ -10,10 +10,29 @@
 // SOFTWARE.
 // -----------------------------------------------------------------------------
 
-#include "bstvis/testfn.h"
+#ifndef __BSTVIS_TREE_H
+#define __BSTVIS_TREE_H
 
-#include <stdio.h>
+#include "structs.h"
+#include "type.h"
 
-void bvTestFunction(const char *str) {
-    printf("Hello BSTvis!\nString: \"%s\"\n", str);
-}
+/**
+ * @brief Create a new node with the given value
+ *
+ * @param value The value to store in the returned node.
+ * @return The new node
+ *
+ */
+bvNode *bvCreateNode(BV_TREE_VALUE_TYPE value);
+
+/**
+ * @brief Creates a new node storing `value` and inserts it into `tree` at the correct position.
+ *
+ * @param node The tree to update
+ * @param value The value to insert
+ * @return The unchanged node pointer
+ *
+ */
+bvNode *bvInsertValue(bvNode *node, BV_TREE_VALUE_TYPE value);
+
+#endif // !__BSTVIS_TREE_H

@@ -10,22 +10,18 @@
 // SOFTWARE.
 // -----------------------------------------------------------------------------
 
-#include "tree.h"
-
-#include "bstvis.h"
-
-#include <stdio.h>
+#ifndef __BSTVIS_STRUCTS_H
+#define __BSTVIS_STRUCTS_H
 
 /**
- * @brief The binary search tree to be visualised.
+ * @brief A node in a binary search tree.
  *
  */
-bvNode *tree = NULL;
+typedef struct bvNode {
+    int value;
 
-void visInsert(int *entries, unsigned int count) {
-    for (unsigned int i = 0; i < count; i++) {
-        bvInsertValue(tree, entries[i]);
-    }
+    struct bvNode *left;
+    struct bvNode *right;
+} bvNode;
 
-    printf(" | Entry insertion successful\n");
-}
+#endif // !__BSTVIS_STRUCTS_H

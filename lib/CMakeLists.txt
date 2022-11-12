@@ -1,5 +1,5 @@
 set(SOURCES
-    "testfn.c"
+    "tree.c"
 )
 
 add_library("${PROJECT_NAME}" SHARED ${SOURCES})
