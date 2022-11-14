@@ -36,7 +36,7 @@ bvNode *bvCreateNode(BV_TREE_VALUE_TYPE value);
 bvNode *bvInsertValue(bvNode *node, BV_TREE_VALUE_TYPE value);
 
 /**
- * @brief Deallocate a node and its children.
+ * @brief Recursively deallocate a node and its children.
  *
  * @param node Pointer to the node to delete
  *

@@ -45,9 +45,8 @@ void bvDeleteNode(bvNode *node) {
         return;
     }
 
-    // traverse through tree (inorder traversal) and free each node
     bvDeleteNode(node->left);
     bvDeleteNode(node->right);
-    
+
     free(node);
 }

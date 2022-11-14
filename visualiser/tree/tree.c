@@ -11,35 +11,17 @@
 // -----------------------------------------------------------------------------
 
 #include "tree.h"
-
 #include "bstvis.h"
 
+#include "ascii.h"
+
 #include <stdio.h>
-
-/**
- * @brief Helper function to display a tree node and its children
- *
- * @param node Node to expand
- *
- */
-void _visViewNode(bvNode *node) {
-    if (node) {
-        // recurse down left
-        _visViewNode(node->left);
-
-        // print node value
-        printf(" |   %d\n", node->value);
-
-        // recurse down right
-        _visViewNode(node->right);
-    }
-}
 
 /**
  * @brief The binary search tree to be visualised.
  *
  */
-bvNode *tree = NULL;
+static bvNode *tree = NULL;
 
 void visInsert(int *entries, unsigned int count) {
     for (unsigned int i = 0; i < count; i++) {
@@ -50,15 +32,14 @@ void visInsert(int *entries, unsigned int count) {
 }
 
 void visView(void) {
-    printf("\n | Binary search tree (flattened; in-order traversal):\n");
+    printf("\n");
 
     if (!tree) {
         printf(" | No entries yet!\n");
         return;
     }
 
-    // in-order traversal
-    _visViewNode(tree);
+    visPrintTree(tree);
 }
 
 void visClean(void) {

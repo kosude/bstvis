@@ -16,6 +16,7 @@
 #include "io/user_query.h"
 #include "control/control.h"
 #include "tree/tree.h"
+#include "tree/ascii.h"
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -69,7 +70,7 @@ int main(void) {
         break;
     }
     visClean();
-    
+
     visPrintCloser(0);
     return 0;
 }
