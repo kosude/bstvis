@@ -29,4 +29,10 @@ void visInsert(int *entries, unsigned int count);
  */
 void visView(void);
 
+/**
+ * @brief Deallocate the binary search tree.
+ *
+ */
+void visClean(void);
+
 #endif // __VIS_TREE_H

@@ -78,7 +78,7 @@ int *visPromptEntryInsertion(unsigned int *countOut) {
         int entry;
         if (!sscanf(line, "%d", &entry)) {
             // if the input is not a numerical value then notify the user and skip it
-            printf("Non-numerical value; skipped\n");
+            printf(" | Non-numerical value; skipped\n");
             continue;
         }
 

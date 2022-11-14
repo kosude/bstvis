@@ -39,3 +39,15 @@ bvNode *bvInsertValue(bvNode *node, BV_TREE_VALUE_TYPE value) {
 
     return node;
 }
+
+void bvDeleteNode(bvNode *node) {
+    if (!node) {
+        return;
+    }
+
+    // traverse through tree (inorder traversal) and free each node
+    bvDeleteNode(node->left);
+    bvDeleteNode(node->right);
+    
+    free(node);
+}

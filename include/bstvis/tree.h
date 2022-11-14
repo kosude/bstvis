@@ -35,4 +35,12 @@ bvNode *bvCreateNode(BV_TREE_VALUE_TYPE value);
  */
 bvNode *bvInsertValue(bvNode *node, BV_TREE_VALUE_TYPE value);
 
+/**
+ * @brief Deallocate a node and its children.
+ *
+ * @param node Pointer to the node to delete
+ *
+ */
+void bvDeleteNode(bvNode *node);
+
 #endif // !__BSTVIS_TREE_H

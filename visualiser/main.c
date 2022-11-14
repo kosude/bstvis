@@ -68,7 +68,8 @@ int main(void) {
 
         break;
     }
-
+    visClean();
+    
     visPrintCloser(0);
     return 0;
 }

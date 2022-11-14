@@ -60,3 +60,7 @@ void visView(void) {
     // in-order traversal
     _visViewNode(tree);
 }
+
+void visClean(void) {
+    bvDeleteNode(tree);
+}
