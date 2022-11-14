@@ -15,8 +15,7 @@ add_compile_options(
     -Wno-unused-result
 )
 
-# without this flag the fucking piece of shit gdb refuses to debug the program despite
-# it already being compiled in debug mode :skull:
+# without this flag gdb refuses to debug the program despite it already being compiled in debug mode
 add_compile_options(-g)
 
 # library
